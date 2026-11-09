@@ -11,6 +11,28 @@
 <meta property="og:image" content="https://lmsoftique.it/media/logo-full.jpg">
 <meta property="og:url" content="https://lmsoftique.it/">
 <meta name="theme-color" content="#04060c">
+<link rel="canonical" href="https://lmsoftique.it/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://lmsoftique.it/#org",
+  "name": "LMSoftique",
+  "url": "https://lmsoftique.it/",
+  "logo": "https://lmsoftique.it/media/logo-full.jpg",
+  "image": "https://lmsoftique.it/media/logo-full.jpg",
+  "description": "Studio web di Cuneo fondato da Emiliano Mancini e Loris: siti ed e-commerce su misura, restyling e web app.",
+  "email": "lmsoftique@gmail.com",
+  "foundingDate": "2026",
+  "founder": [
+    {"@type": "Person", "name": "Emiliano Mancini"},
+    {"@type": "Person", "name": "Loris"}
+  ],
+  "address": {"@type": "PostalAddress", "addressLocality": "Busca", "addressRegion": "CN", "addressCountry": "IT"},
+  "areaServed": {"@type": "AdministrativeArea", "name": "Provincia di Cuneo"},
+  "sameAs": ["https://www.instagram.com/lmsoftique/"]
+}
+</script>
 <style>body{margin:0}img{max-width:100%}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -121,6 +143,13 @@ section.block{padding-block:clamp(40px,7vw,90px);border-top:1px solid var(--line
 .services h4{font-family:var(--display);font-weight:600;font-size:1rem;margin:0 0 8px}
 .services p{margin:0;color:var(--steel);font-size:15px}
 
+/* chi siamo */
+.about{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+@media (max-width:640px){.about{grid-template-columns:1fr}}
+.about div{background:var(--ink);padding:22px}
+.about h4{font-family:var(--display);font-weight:600;font-size:1.1rem;margin:0 0 8px}
+.about p{margin:0;color:var(--steel);font-size:15px}
+
 /* contatti */
 .contact{text-align:left}
 .contact h2{font-family:var(--display);font-weight:800;font-size:clamp(2rem,6vw,4.4rem);letter-spacing:-.035em;line-height:1;margin:10px 0 24px;text-wrap:balance}
@@ -143,6 +172,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     <nav aria-label="Sezioni">
       <a href="#lavori">Lavori</a>
       <a href="#servizi">Servizi</a>
+      <a href="#chi-siamo">Chi siamo</a>
       <a class="cta" href="#contatti">Contatti</a>
     </nav>
   </div>
@@ -229,6 +259,16 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     </div>
   </section>
 
+  <section class="block" id="chi-siamo">
+    <div class="wrap">
+      <div class="head"><div><span class="mono">Chi siamo</span><h2>Emiliano e Loris, da Cuneo.</h2></div><p>LMSoftique è il nostro studio: ci conosciamo dai tempi della scuola e una sera abbiamo deciso di costruire qualcosa di nostro. Ogni sito lo seguiamo noi due, dall'idea alla messa online.</p></div>
+      <div class="about">
+        <div><h4>Emiliano Mancini</h4><p>Co-fondatore di LMSoftique.</p></div>
+        <div><h4>Loris</h4><p>Co-fondatore di LMSoftique.</p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="block contact" id="contatti">
     <div class="wrap">
       <span class="mono">Contatti</span>
@@ -245,7 +285,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   </section>
 </main>
 
-<footer><div class="wrap"><span>LMSoftique · Cuneo · <a href="https://www.instagram.com/lmsoftique/" target="_blank" rel="noopener" style="color:inherit">Instagram</a></span><span>Siti web ed e-commerce · 2026</span></div></footer>
+<footer><div class="wrap"><span>LMSoftique di Emiliano Mancini e Loris · Busca (CN) · <a href="https://www.instagram.com/lmsoftique/" target="_blank" rel="noopener" style="color:inherit">Instagram</a></span><span>Siti web ed e-commerce · 2026</span></div></footer>
 
 <script>
 (function(){
