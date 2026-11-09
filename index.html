@@ -32,9 +32,19 @@
 }
 </script>
 <style>body{margin:0}img{max-width:100%}</style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" href="fonts/unbounded-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/manrope-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* Font ospitati sul sito: nessuna richiesta a Google */
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/unbounded-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/unbounded-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/unbounded-latin-800-normal.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/manrope-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/manrope-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/jetbrains-mono-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format('woff2')}
 /* Layout: notte elettrica dal logo. Intro con logo, caso reale in grande, prodotto in telefono, griglia di concept con video che scorrono */
 :root{
   --ink:#04060c;        /* fondo, il nero del logo */
@@ -79,9 +89,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .intro h1 em{font-style:normal;background:linear-gradient(90deg,var(--ice),var(--glow) 55%,var(--volt));-webkit-background-clip:text;background-clip:text;color:transparent}
 .intro p.lead{max-width:52ch;color:var(--steel);font-size:clamp(1.02rem,1.6vw,1.18rem);margin:0}
 .intro .logo{width:100%;max-width:420px;justify-self:end;mix-blend-mode:screen;filter:drop-shadow(0 0 40px color-mix(in srgb,var(--volt) 40%,transparent))}
-.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:30px}
-.facts span{font-family:var(--mono);font-size:13px;color:var(--ice)}
-.facts span i{font-style:normal;color:var(--glow);margin-right:8px}
 
 /* sezioni */
 section.block{padding-block:clamp(40px,7vw,90px);border-top:1px solid var(--line)}
@@ -180,14 +187,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   <section class="intro">
     <div class="wrap">
       <div>
-        <span class="mono">Studio web · Cuneo · dal 2026</span>
+        <span class="mono">Studio web · Provincia di Cuneo · dal 2026</span>
         <h1>Siti che fanno <em>lavorare</em> le attività italiane.</h1>
         <p class="lead">Siamo una start up: rifacciamo siti ed e-commerce con animazioni allo scroll, foto vere del cliente e richieste che arrivano davvero. Qui sotto i lavori fatti e quelli in corso.</p>
-        <div class="facts">
-          <span><i>01</i>sito cliente online</span>
-          <span><i>01</i>app nostra in sviluppo</span>
-          <span><i>02</i>siti in lavorazione</span>
-        </div>
       </div>
       <img class="logo" src="media/logo-full.jpg" alt="Logo LMSoftique">
     </div>
@@ -282,29 +284,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   </section>
 </main>
 
-<footer><div class="wrap"><span>LMSoftique di Emiliano Mancini · P.IVA 04234810044 · Busca (CN) · <a href="https://www.instagram.com/lmsoftique/" target="_blank" rel="noopener" style="color:inherit">Instagram</a></span><span>Siti web ed e-commerce · 2026</span></div></footer>
+<footer><div class="wrap"><span>LMSoftique di Emiliano Mancini · P.IVA 04234810044 · Busca (CN) · <a href="https://www.instagram.com/lmsoftique/" target="_blank" rel="noopener" style="color:inherit">Instagram</a> · <a href="privacy.html" style="color:inherit">Privacy e cookie</a></span><span>Siti web ed e-commerce · 2026</span></div></footer>
 
 <script>
 (function(){
-  var concepts=[
-    {id:'cantine-paololeo',name:'Cantine Paololeo',sector:'Cantina · Salento',desc:'Vini del Salento raccontati con le vigne del Negroamaro, la storia di famiglia e le visite in cantina.'},
-    {id:'birrificio-montegioco',name:'Birrificio Montegioco',sector:'Birrificio · Val Grue',desc:'Birre artigianali di confine: le famiglie di birre, la frutta del territorio e lo shop online.'},
-    {id:'coltelleria-saladini',name:'Coltelleria Saladini',sector:'Artigianato · Scarperia',desc:'Coltelli fatti a mano in vetrina come oggetti da collezione, con prezzi e storia della bottega.'},
-    {id:'vinilgomma',name:'Vinilgomma',sector:'Industria · B2B',desc:'Tubi flessibili per l’acciaieria: famiglie di prodotto, certificazioni e richiesta di preventivo.'},
-    {id:'hotel-alpi-foza',name:'Hotel Alpi di Foza',sector:'Hotel · Altopiano di Asiago',desc:'Camere, cucina di montagna e bici sull’altopiano, con le offerte in primo piano.'},
-    {id:'piazza-prosciutti',name:'Piazza Prosciutti',sector:'Salumificio · Langhirano',desc:'Prosciutto di Parma dal 1974: i sette passaggi della lavorazione e la famiglia che lo fa.'}
-  ];
-  var grid=document.getElementById('concept-grid');
-  if(grid) concepts.forEach(function(c){
-    var a=document.createElement('article');a.className='work';
-    a.innerHTML='<div class="screen"><div class="top"><i></i><i></i><i></i><span></span></div><video muted loop playsinline preload="none"></video></div>'+
-      '<div class="meta"><h4></h4><span class="status s-concept">Concept</span></div><span class="mono"></span><p></p>';
-    a.querySelector('.top span').textContent=c.id.replace(/-/g,' ')+' · concept';
-    var v=a.querySelector('video');v.src='media/'+c.id+'.mp4';v.poster='media/'+c.id+'.jpg';v.setAttribute('aria-label','Concept del sito '+c.name+' che scorre');
-    a.querySelector('h4').textContent=c.name;a.querySelector('.mono').textContent=c.sector;a.querySelector('p').textContent=c.desc;
-    grid.appendChild(a);
-  });
-
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   var vids=[].slice.call(document.querySelectorAll('video'));
   if(!reduce&&'IntersectionObserver' in window){
