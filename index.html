@@ -23,7 +23,7 @@
   "image": "https://lmsoftique.it/media/logo-full.jpg",
   "description": "Studio web di Emiliano Mancini, provincia di Cuneo: siti ed e-commerce su misura, restyling e web app.",
   "vatID": "IT04234810044",
-  "email": "lmsoftique@gmail.com",
+  "email": "info@lmsoftique.it",
   "foundingDate": "2026",
   "founder": {"@type": "Person", "name": "Emiliano Mancini"},
   "address": {"@type": "PostalAddress", "addressLocality": "Busca", "addressRegion": "CN", "addressCountry": "IT"},
@@ -271,7 +271,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
       <span class="mono">Contatti</span>
       <h2>Parliamo del tuo sito.</h2>
       <div class="mail">
-        <code id="email">lmsoftique@gmail.com</code>
+        <code id="email">info@lmsoftique.it</code>
         <button class="btn" type="button" id="copy">Copia email</button>
       </div>
       <a class="ig" href="https://www.instagram.com/lmsoftique/" target="_blank" rel="noopener">
@@ -317,7 +317,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
   var t;
   function toast(m){var d=document.querySelector('.toast');if(d)d.remove();d=document.createElement('div');d.className='toast';d.setAttribute('role','status');d.textContent=m;document.body.appendChild(d);clearTimeout(t);t=setTimeout(function(){d.remove()},2600)}
   document.getElementById('copy').addEventListener('click',function(){
-    var mail='lmsoftique@gmail.com';
+    var mail='info@lmsoftique.it';
     function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);toast('Email selezionata: copiala dal menu')}
     try{navigator.clipboard.writeText(mail).then(function(){toast('Email copiata')},sel)}catch(e){sel()}
   });
