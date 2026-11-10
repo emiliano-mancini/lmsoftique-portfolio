@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lascia una recensione · LMSoftique</title>
+<meta name="description" content="Lascia una recensione a LMSoftique su Google.">
+<meta name="robots" content="noindex,follow">
+<link rel="icon" href="media/logo-mark.jpg">
+<meta name="theme-color" content="#04060c">
+<script>
+  /* Link per lasciare una recensione su Google.
+     Quando il profilo Google è verificato: Profilo → "Chiedi recensioni" → copia il link e incollalo qui.
+     Il QR stampato punta a questa pagina, quindi non va mai rifatto. */
+  var LINK_RECENSIONE_GOOGLE = '';
+  if (/^https:\/\//.test(LINK_RECENSIONE_GOOGLE)) location.replace(LINK_RECENSIONE_GOOGLE);
+</script>
+<style>
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/unbounded-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/manrope-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/manrope-latin-600-normal.woff2) format('woff2')}
+:root{--ink:#04060c;--panel:#0b1020;--line:#1a2340;--ice:#e9eef8;--steel:#8e99b3;--volt:#2a7bff;--glow:#7fd0ff;
+  --display:'Unbounded','Arial Black',system-ui,sans-serif;--body:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--ink);color:var(--ice);font:17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+main{max-width:520px;padding-block:40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));text-align:center}
+img.logo{width:72px;height:72px;mix-blend-mode:screen}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,5vw,2rem);letter-spacing:-.02em;line-height:1.15;margin:16px 0 12px;text-wrap:balance}
+p{color:var(--steel);margin:0 0 18px}
+.btn{display:inline-block;font:600 15px var(--body);color:var(--ink);background:var(--ice);border-radius:999px;padding:13px 20px;text-decoration:none}
+.btn:hover{background:var(--glow)}
+code{font-family:ui-monospace,Menlo,monospace;color:var(--ice);background:var(--panel);border:1px solid var(--volt);border-radius:999px;padding:8px 14px;display:inline-block;user-select:all}
+a.back{color:var(--steel);font-size:14px}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+</style>
+</head>
+<body>
+<main>
+  <img class="logo" src="media/logo-mark.jpg" alt="Logo LMSoftique">
+  <div id="vai" hidden>
+    <h1>Ti portiamo su Google…</h1>
+    <p>Se la pagina non si apre da sola, tocca il bottone.</p>
+    <a class="btn" id="vai-link" href="#">Lascia una recensione su Google</a>
+  </div>
+  <div id="presto">
+    <h1>Grazie per volerci lasciare una recensione</h1>
+    <p>Il nostro profilo Google è in fase di attivazione. Torna su questa pagina tra qualche giorno: ti porterà direttamente al modulo di Google. Per qualsiasi cosa scrivici.</p>
+    <p><code>info@lmsoftique.it</code></p>
+  </div>
+  <p style="margin-top:28px"><a class="back" href="./">← Torna a lmsoftique.it</a></p>
+</main>
+<script>
+  if (/^https:\/\//.test(LINK_RECENSIONE_GOOGLE)) {
+    document.getElementById('vai-link').href = LINK_RECENSIONE_GOOGLE;
+    document.getElementById('vai').hidden = false;
+    document.getElementById('presto').hidden = true;
+  }
+</script>
+</body>
+</html>

@@ -143,6 +143,16 @@ section.block{padding-block:clamp(40px,7vw,90px);border-top:1px solid var(--line
 .work p{margin:0;color:var(--steel);font-size:15px}
 .note{margin-top:28px;padding:14px 18px;border:1px dashed var(--line);border-radius:12px;color:var(--steel);font-size:14px;max-width:80ch}
 
+/* recensioni */
+.reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:clamp(16px,2.4vw,24px)}
+.review{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,2.4vw,26px);display:flex;flex-direction:column;gap:14px;min-width:0;margin:0}
+.review .stars{color:#ffc56b;letter-spacing:.12em;font-size:18px}
+.review blockquote{margin:0;color:var(--ice);font-size:16px;line-height:1.6}
+.review figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;color:var(--steel);font-size:14px;margin-top:auto}
+.review figcaption b{color:var(--ice);font-weight:600}
+.review figcaption a{color:var(--glow);font-size:13px}
+.review-cta{margin-top:clamp(20px,3vw,32px)}
+.review-cta .btn{display:inline-block;text-decoration:none}
 /* servizi */
 .services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 @media (max-width:900px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -180,6 +190,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     <nav aria-label="Sezioni">
       <a href="#lavori">Lavori</a>
       <a href="#servizi">Servizi</a>
+      <a href="#recensioni" id="nav-recensioni" hidden>Recensioni</a>
       <a href="#chi-siamo">Chi siamo</a>
       <a class="cta" href="#contatti">Contatti</a>
     </nav>
@@ -262,6 +273,26 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     </div>
   </section>
 
+  <!--
+    RECENSIONI
+    La sezione resta nascosta finché la lista qui sotto è vuota.
+    Per aggiungere una recensione copiala da Google e aggiungi un elemento così:
+    {"nome":"Mario Rossi","azienda":"Nonsolombra","stelle":5,"testo":"…","data":"2026-11","fonte":"https://…link alla recensione su Google…"}
+  -->
+  <section class="block" id="recensioni" hidden>
+    <div class="wrap">
+      <div class="head">
+        <div><span class="mono">Recensioni</span><h2>Cosa dicono i clienti</h2></div>
+        <p>Recensioni lasciate dai nostri clienti sul nostro profilo Google. Ogni recensione porta alla fonte originale.</p>
+      </div>
+      <div class="reviews" id="lista-recensioni"></div>
+      <div class="review-cta">
+        <a class="btn" href="recensione.html">Sei un nostro cliente? Lascia una recensione</a>
+      </div>
+    </div>
+  </section>
+  <script type="application/json" id="recensioni-dati">[]</script>
+
   <section class="block" id="servizi">
     <div class="wrap">
       <div class="head"><div><span class="mono">Servizi</span><h2>Cosa facciamo</h2></div></div>
@@ -311,6 +342,24 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     })},{threshold:.35});
     vids.forEach(function(v){io.observe(v)});
   }
+
+  // recensioni: la sezione compare solo se c'è almeno una recensione
+  try{
+    var rev=JSON.parse(document.getElementById('recensioni-dati').textContent||'[]');
+    if(rev.length){
+      var box=document.getElementById('lista-recensioni');
+      rev.forEach(function(r){
+        var f=document.createElement('figure');f.className='review';
+        var st=document.createElement('div');st.className='stars';var n=Math.max(1,Math.min(5,r.stelle||5));st.textContent='★★★★★'.slice(0,n)+'☆☆☆☆☆'.slice(0,5-n);st.setAttribute('aria-label',n+' stelle su 5');
+        var q=document.createElement('blockquote');q.textContent='“'+r.testo+'”';
+        var c=document.createElement('figcaption');var who=document.createElement('span');var b=document.createElement('b');b.textContent=r.nome;who.appendChild(b);if(r.azienda)who.appendChild(document.createTextNode(' · '+r.azienda));c.appendChild(who);
+        if(r.fonte&&/^https:\/\//.test(r.fonte)){var a=document.createElement('a');a.href=r.fonte;a.target='_blank';a.rel='noopener';a.textContent='Leggi su Google ↗';c.appendChild(a);}
+        f.appendChild(st);f.appendChild(q);f.appendChild(c);box.appendChild(f);
+      });
+      document.getElementById('recensioni').hidden=false;
+      document.getElementById('nav-recensioni').hidden=false;
+    }
+  }catch(e){}
 
   var t;
   function toast(m){var d=document.querySelector('.toast');if(d)d.remove();d=document.createElement('div');d.className='toast';d.setAttribute('role','status');d.textContent=m;document.body.appendChild(d);clearTimeout(t);t=setTimeout(function(){d.remove()},2600)}
