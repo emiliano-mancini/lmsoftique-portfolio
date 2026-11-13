@@ -116,6 +116,7 @@ section.block{padding-block:clamp(40px,7vw,90px);border-top:1px solid var(--line
 .go{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;border-bottom:1.5px solid var(--volt);padding-bottom:3px}
 .go:hover{color:var(--glow)}
 
+@media (min-width:901px){.feature-alt{grid-template-columns:1fr 1.6fr}.feature-alt .screen{order:2}}
 /* coppia prodotto + 800 */
 .duo{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(20px,3vw,36px);align-items:start}
 @media (max-width:900px){.duo{grid-template-columns:1fr}}
@@ -213,7 +214,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     <div class="wrap">
       <div class="head">
         <div><span class="mono">Lavori</span><h2>Online e in sviluppo</h2></div>
-        <p>Ogni anteprima è il sito vero che scorre. Il primo è online per un cliente, gli altri sono nostri progetti in corso.</p>
+        <p>Ogni anteprima è il sito vero che scorre. I primi due sono online per i nostri clienti, gli altri sono progetti in corso.</p>
       </div>
 
       <div class="feature">
@@ -227,6 +228,20 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
           <p>Sito nuovo per un'azienda di Bra che dal 2003 vende e installa tende da sole, pergole e zanzariere su misura. Prodotti in primo piano, realizzazioni vere e richiesta di sopralluogo gratuito in provincia di Cuneo.</p>
           <div class="tags"><span class="tag">Tende e serramenti</span><span class="tag">Bra (CN)</span><span class="tag">Prenotazione appuntamenti</span></div>
           <a class="go" href="https://nonsolombra.eu/" target="_blank" rel="noopener">Visita il sito ↗</a>
+        </div>
+      </div>
+
+      <div class="feature feature-alt" style="margin-top:clamp(36px,6vw,72px)">
+        <div class="screen">
+          <div class="top"><i></i><i></i><i></i><span>miosotisdronero.it</span></div>
+          <video src="media/miosotis.mp4" poster="media/miosotis.jpg" muted loop playsinline preload="metadata" aria-label="Il sito di Miosotis Fiori che scorre"></video>
+        </div>
+        <div>
+          <span class="status s-live">Online · cliente</span>
+          <h3>Miosotis Fiori</h3>
+          <p>Sito per una fioraia di Dronero che non vende mazzi da catalogo ma traduce un sentimento in fiori. Si sceglie cosa si vuole dire (amore, gioia, grazie, ricordo) e il budget, e il messaggio per WhatsApp si scrive da solo.</p>
+          <div class="tags"><span class="tag">Fioraio</span><span class="tag">Dronero (CN)</span><span class="tag">Ordini su WhatsApp</span></div>
+          <a class="go" href="https://miosotisdronero.it/" target="_blank" rel="noopener">Visita il sito ↗</a>
         </div>
       </div>
 
